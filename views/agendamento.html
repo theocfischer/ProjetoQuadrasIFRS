@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="banner">
+    <div class="logo">
+        <img src="logo-ifrs.png" alt="Logo IFRS">
+    </div>
+    <div class="titulo">Sistema de Agendamento IFRS</div>
+    <!-- botão Sair removido temporariamente -->
+</div>
+
+<div class="menu">
+    <a href="index.html">🏠 Início</a>
+    <a href="login.html">🔐 Login</a>
+    <a href="agendamento.html" class="active">📅 Agendamento</a>
+    <a href="/horarios">⏰ Horários</a>
+</div>
+
+<div class="container">
+    <h2>Agendamento da Quadra</h2>
+    <form action="/salvaragendamento" method="POST">
+        <label for="matricula_usuario">Matrícula do Usuário:</label>
+        <input type="text" id="matricula_usuario" name="matricula_usuario" required>
+
+        <label for="id_quadra">Quadra:</label>
+        <select id="id_quadra" name="id_quadra" required>
+          <option value="">Carregando quadras...</option>
+        </select>
+        <div id="quadra-desc" class="descricao-quadra" aria-live="polite"></div>
+        <div id="quadra-error" style="color:#cc3333; font-weight:600; margin-top:6px;"></div>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const sel = document.getElementById('id_quadra');
+          const desc = document.getElementById('quadra-desc');
+          const errorDiv = document.getElementById('quadra-error');
+          const form = document.querySelector('form[action="/salvaragendamento"]');
+
+          // mostra carregando
+          sel.innerHTML = '<option value="">Carregando quadras...</option>';
+          sel.disabled = true;
+
+          fetch('/quadras/lista')
+            .then(r => {
+              if (!r.ok) throw new Error('Resposta da lista de quadras não OK');
+              return r.json();
+            })
+            .then(qs => {
+              sel.innerHTML = '';
+              sel.disabled = false;
+              if (!qs || qs.length === 0) {
+                // sem quadras cadastradas
+                sel.innerHTML = '<option value="">Nenhuma quadra cadastrada</option>';
+                sel.disabled = true;
+                errorDiv.textContent = 'Nenhuma quadra está cadastrada no sistema. Contate um servidor.';
+                return;
+              }
+
+              // popula opções e guarda descrição em data-atributo
+              qs.forEach(q => {
+                const opt = document.createElement('option');
+                opt.value = q.id_quadra; // envia id_quadra para o back
+                opt.textContent = q.nome_quadra; // mostra o nome pro usuário
+                opt.title = q.descricao || '';
+                if (q.descricao) opt.dataset.descricao = q.descricao;
+                sel.appendChild(opt);
+              });
+
+              // mostra descrição da opção selecionada (se houver)
+              if (sel.selectedOptions.length > 0 && sel.selectedOptions[0].dataset.descricao) {
+                desc.textContent = sel.selectedOptions[0].dataset.descricao;
+              } else {
+                desc.textContent = '';
+              }
+            })
+            .catch(err => {
+              console.error('Erro ao carregar quadras', err);
+              sel.innerHTML = '<option value="">Erro ao carregar quadras</option>';
+              sel.disabled = true;
+              errorDiv.textContent = 'Não foi possível carregar as quadras. Tente novamente mais tarde.';
+            });
+
+          // ao mudar seleção, atualizar descrição
+          sel.addEventListener('change', function () {
+            const opt = sel.selectedOptions[0];
+            desc.textContent = (opt && opt.dataset && opt.dataset.descricao) ? opt.dataset.descricao : '';
+            errorDiv.textContent = '';
+          });
+
+          // validação cliente: evita enviar se o select está desabilitado ou vazio
+          form.addEventListener('submit', function (e) {
+            if (sel.disabled || !sel.value) {
+              e.preventDefault();
+              errorDiv.textContent = 'Selecione uma quadra válida antes de enviar.';
+              sel.focus();
+              return false;
+            }
+          });
+        });
+        </script>
+
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" required>
+
+        <label for="horario">Horário:</label>
+        <input type="time" id="horario" name="horario" required>
+
+        <label for="obs">Observações:</label>
+        <textarea id="obs" name="observacoes" rows="3"></textarea>
+
+        <button type="submit">Salvar</button>
+        <button type="reset">Limpar</button>
+    </form>
+</div>
+
+<div class="btn-voltar-container">
+    <a href="index.html" class="btn-voltar">⬅ Voltar para o Início</a>
+</div>
+
+<script src="js/session.js"></script>
+
+</body>
+</html>

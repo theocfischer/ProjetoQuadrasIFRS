@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horários</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+<div class="banner">
+    <div class="logo">
+        <img src="logo-ifrs.png" alt="Logo IFRS">
+    </div>
+    <div class="titulo">Sistema de Agendamento IFRS</div>
+    <!-- botão Sair removido temporariamente -->
+</div>
+
+
+<div class="menu">
+    <a href="index.html">🏠 Início</a>
+    <a href="login.html">🔐 Login</a>
+    <a href="agendamento.html">📅 Agendamento</a>
+    <a href="/horarios" class="active">⏰ Horários</a>
+</div>
+
+    <div class="container">
+        <h2>Próximos Agendamentos</h2>
+        <table class="tabela-agendamentos">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th>Tipo de Usuário</th>
+                    <th>Observações</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2025-05-20</td>
+                    <td>14:00</td>
+                    <td>Estudante</td>
+                    <td>Quadra 2</td>
+                    <td>
+                        <button class="btn-editar">Alterar</button>
+                        <button class="btn-cancelar">Cancelar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2025-05-22</td>
+                    <td>16:00</td>
+                    <td>Servidor</td>
+                    <td>Treinamento equipe</td>
+                    <td>
+                        <button class="btn-editar">Alterar</button>
+                        <button class="btn-cancelar">Cancelar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Histórico de Agendamentos</h2>
+        <table class="tabela-agendamentos">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th>Tipo de Usuário</th>
+                    <th>Observações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2025-04-15</td>
+                    <td>10:00</td>
+                    <td>Estudante</td>
+                    <td>Partida de vôlei</td>
+                </tr>
+                <tr>
+                    <td>2025-04-10</td>
+                    <td>08:00</td>
+                    <td>Servidor</td>
+                    <td>Reunião esportiva</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="btn-voltar-container">
+        <a href="index.html" class="btn-voltar">⬅ Voltar para o Início</a>
+    </div>
+
+    <script src="js/session.js"></script>
+
+</body>
+
+</html>

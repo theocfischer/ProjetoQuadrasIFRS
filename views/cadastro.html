@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+<div class="banner">
+    <div class="logo">
+        <img src="logo-ifrs.png" alt="Logo IFRS">
+    </div>
+    <div class="titulo">Sistema de Agendamento IFRS</div>
+    <!-- botão Sair removido temporariamente -->
+</div>
+
+
+<div class="menu">
+    <a href="index.html">🏠 Início</a>
+    <a href="login.html" class="active">🔐 Login</a>
+    <a href="agendamento.html">📅 Agendamento</a>
+    <a href="/horarios">⏰ Horários</a>
+</div>
+
+    <div class="container">
+        <h2>Login / Cadastro</h2>
+        
+        <form action="/salvarusuario" method="POST">
+            <label for="matricula">Matrícula:</label>
+            <input type="text" id="matricula" name="matricula" required>
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="tipo">Tipo de Usuário:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="estudante">Estudante</option>
+                <option value="servidor">Servidor</option>
+            </select>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <button type="submit">Cadastrar</button>
+            <button type="reset">Limpar</button>
+        </form>
+
+
+    </div>
+    <div class="btn-voltar-container">
+        <a href="index.html" class="btn-voltar">⬅ Voltar para o Início</a>
+    </div>
+
+<script src="js/session.js"></script>
+
+
+</body>
+
+</html>

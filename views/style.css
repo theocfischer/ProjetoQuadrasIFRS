@@ -1,0 +1,332 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.banner {
+    background-image: url('BANNER.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    height: 80px;
+    position: relative;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.titulo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 26px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* botão "sair" - inline por padrão para não sobrepor perfil */
+.btn-sair {
+    background-color: transparent;
+    color: white;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* se algum lugar precisar de um botão 'sair' posicionado no canto da banner
+   (uso específico), use a classe .btn-sair-float na âncora:
+   <a class="btn-sair btn-sair-float" ...>
+*/
+.btn-sair-float {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.btn-sair:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: #004d26;
+    padding: 10px 0;
+}
+
+.menu a.active {
+    color: #ffd700;
+    font-weight: bolder;
+    cursor: default;
+    pointer-events: none; 
+    border-right: 1px solid black; 
+}
+
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: transform 0.2s ease, color 0.3s ease;
+    border-right: 1px solid black;
+}
+
+.menu a:last-child {
+    border-right: none;
+}
+
+.menu a:hover {
+    color: #ffd700;
+    transform: scale(1.05);
+}
+
+.container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+
+button {
+    background-color: #006633;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #004d26;
+}
+
+
+/* Parte dos horarios*/
+
+.tabela-agendamentos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    table-layout: fixed;       
+    word-wrap: break-word;    
+}
+
+.container {
+    max-width: 900px; 
+}
+
+/* 
+
+Era pra dar certo assim, mas não deu, então copiei tudo pra baixo e depois mostro pro GPT, a ideia era que só o container dos horarios tivesse 900px, pq a tabela é grande e tava ultrapassando o quadrado, mas não deu certo e ele ficou esquisito com essas configurações, não ficou 900px eu acho 
+
+.container-horarios {
+    max-width: 900px;
+}
+
+.container-horarios .tabela-agendamentos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.container-horarios .btn-editar,
+.container-horarios .btn-cancelar {
+    display: block;
+    width: 100%;
+    margin: 6px 0;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+*/
+
+
+.tabela-agendamentos th,
+.tabela-agendamentos td {
+    border: 1px solid #ccc;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.tabela-agendamentos thead {
+    background-color: #006633;
+    color: white;
+    font-weight: bold;
+}
+
+.tabela-agendamentos tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.btn-editar,
+.btn-cancelar {
+    display: block;            
+    width: 100%;               
+    margin: 6px 0;             
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-editar {
+    background-color: #006633;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #004d26;
+}
+
+.btn-cancelar {
+    background-color: #cc3333;
+    color: white;
+}
+
+.btn-cancelar:hover {
+    background-color: #990000;
+}
+
+
+.btn-voltar-container {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.btn-voltar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #006633;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-voltar:hover {
+    background-color: #006633;
+}
+
+.descricao-quadra { 
+    font-size: 14px; color: #333; margin-top: 6px; margin-bottom: 8px; 
+}
+
+
+/*perfil*/
+.usuario-topo {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-weight: 600;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: rgba(0,0,0,0.4);
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+.usuario-topo .usuario-nome {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+.btn-link {
+  color: white;
+  text-decoration: underline;
+  margin-left: 6px;
+}
+
+
+.usuario-topo a.btn-link {
+  background-color: #ffd700;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.usuario-topo a.btn-link:hover {
+  background-color: #ffea80;
+}
+
+.mensagem-sucesso {
+    font-size: 16px;
+    color: #006633;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.detalhes-resposta p {
+    margin: 6px 0;
+}
+
+/*espaçamento  botões resposta */
+.container p a.btn-voltar {
+  margin: 5px;
+  display: inline-block;
+}
+
+.container p:last-child {
+  margin-top: 15px;
+}
+
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
