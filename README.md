@@ -1,6 +1,8 @@
-# Sistema de Agendamento de Quadras - IFRS
+# Sistema de Agendamento de Quadras — IFRS
 
-Projeto desenvolvido para gerenciamento de agendamento de quadras esportivas do IFRS Campus Restinga, como projeto acadêmico e pessoal, utilizando Node.js, Express e MySQL.
+Projeto acadêmico desenvolvido durante a formação técnica em Informática no IFRS Campus Restinga.
+
+O sistema simula uma aplicação web para gerenciamento de agendamentos de quadras esportivas, com cadastro de usuários, autenticação, sessões, visualização de horários e integração com banco de dados MySQL.
 
 ## Tecnologias utilizadas
 
@@ -16,46 +18,25 @@ Projeto desenvolvido para gerenciamento de agendamento de quadras esportivas do 
 ## Funcionalidades
 
 - Cadastro de usuários
-- Sistema de login
-- Sessão de usuário
+- Login com senha criptografada
+- Controle de sessão
+- Cadastro/gerenciamento de quadras
 - Agendamento de horários
-- Visualização de horários
-- Gerenciamento de quadras
+- Visualização de horários disponíveis
+- Integração com banco de dados relacional
 
-## Como executar o projeto
+## Objetivo do projeto
 
-### 1. Clone o repositório
+O objetivo foi praticar o desenvolvimento de uma aplicação web com back-end em Node.js, persistência de dados em MySQL e controle básico de autenticação e sessão.
 
-```bash
-git clone LINK_DO_REPOSITORIO
-```
+## Estrutura do projeto
 
-### 2. Instale as dependências
-
-```bash
-npm install
-```
-
-### 3. Configure o banco de dados
-
-Importe o arquivo:
-
-```txt
-quadras.sql
-```
-
-no MySQL.
-
-### 4. Execute o projeto
-
-```bash
-node index.js
-```
-
-## Observações
-
-Este projeto utiliza Node.js e MySQL localmente, portanto não funciona diretamente no GitHub Pages.
-
-## Autor
-
-Theo Fischer
+```text
+ProjetoQuadrasIFRS/
+├── model/
+├── views/
+├── index.js
+├── package.json
+├── package-lock.json
+├── quadras.sql
+└── README.md
