@@ -31,6 +31,34 @@ O sistema simula uma aplicação web para gerenciamento de agendamentos de quadr
 
 ---
 
+## Capturas de tela
+
+### Tela inicial
+
+![Tela inicial do sistema](assets/tela_inicial.png)
+
+### Cadastro de usuário
+
+![Tela de cadastro de usuário](assets/tela_cadastro.png)
+
+### Login
+
+![Tela de login](assets/tela_login.png)
+
+### Agendamento de quadra
+
+![Tela de agendamento de quadra](assets/tela_agendamento.png)
+
+### Consulta de horários
+
+![Tela de horários e histórico de agendamentos](assets/tela_horarios.png)
+
+### Gerenciamento de quadras
+
+![Tela de gerenciamento de quadras](assets/tela_cadquadras.png)
+
+---
+
 ## Objetivo do projeto
 
 O objetivo do projeto foi praticar o desenvolvimento de uma aplicação web com back-end em Node.js, persistência de dados em MySQL e controle básico de autenticação e sessão.
